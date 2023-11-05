@@ -2,6 +2,8 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { deleteAvatar } from "../SelectAvatar/logic_avatar/logic";
+import Image from "next/image";
+import { searchAvatar } from "../SelectAvatar/avatar-icon";
 
 export interface typeUser {
   name: string;
@@ -26,21 +28,25 @@ const User = () => {
 
   /////////////////////////////////////////////////////
   return (
-    <div>
+    <>
       {avatar && (
-        <span>
-          <button
-            onClick={() => {
-              deleteAvatar();
-              router.push("/avatar");
-            }}
-          >
-            Eliminar avatar
-          </button>
-          <p>{avatar.name}</p>
-        </span>
+        <div className="flex p-4 items-start ">
+          <Image width={45} src={searchAvatar(avatar.img).img} alt="err" />
+          <div className="flex flex-col items-start ml-2">
+            <p className=" ">{avatar.name}</p>
+            <button
+              className="text-xs font-light transition-colors text-neutral-400 hover:text-red-300"
+              onClick={() => {
+                deleteAvatar();
+                router.push("/avatar");
+              }}
+            >
+              Eliminar avatar
+            </button>
+          </div>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 
