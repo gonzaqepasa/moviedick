@@ -1,0 +1,16 @@
+/* Cambia el color de fondo de la barra de desplazamiento */
+.overflow-custom-nav::-webkit-scrollbar {
+  width: 5px; /* Ajusta el ancho de la barra de desplazamiento */
+}
+
+/* Cambia el estilo del pulgar de la barra de desplazamiento */
+.overflow-custom-nav::-webkit-scrollbar-thumb {
+  background-color: rgb(34,211,238); /* Cambia el color del pulgar de la barra de desplazamiento */
+
+  border-radius: 5px; /* Agrega bordes redondeados al pulgar */
+}
+
+/* Cambia el color de fondo de la pista de la barra de desplazamiento */
+.overflow-custom-nav ::-webkit-scrollbar-track {
+  background-color: #e5e7eb; /* Cambia el color de la pista de la barra de desplazamiento */
+}
