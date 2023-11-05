@@ -35,7 +35,7 @@ const User = () => {
           <div className="flex flex-col items-start ml-2">
             <p className=" ">{avatar.name}</p>
             <button
-              className="text-xs font-light transition-colors text-neutral-400 hover:text-red-300"
+              className="text-xs w-24 font-light text-start transition-colors text-neutral-400  hover:text-red-300"
               onClick={() => {
                 deleteAvatar();
                 router.push("/avatar");

@@ -15,7 +15,7 @@ const TextView: React.FC<Props> = async ({ MovieMain }) => {
             ? data.overview.slice(0, 150) + "..."
             : data.overview}
         </p>
-        <button className="main-color-text text-sm hover:brightness-125 transition">
+        <button className=" w-16 main-color-text text-sm hover:brightness-125 transition">
           {"ver más"}
         </button>
       </div>
