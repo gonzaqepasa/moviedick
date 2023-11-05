@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 function Navbar() {
   const [isTop, setIsTop] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY === 0) {
@@ -23,11 +24,11 @@ function Navbar() {
   }, []);
   return (
     <div
-      className={`flex items-center ease-in-out duration-700 transition-colors ${
+      className={`flex items-center ease-in-out duration-700 shadow  transition-colors ${
         !isTop ? "bg-neutral-900" : " bg-neutral-900/10"
       }  w-screen  fixed top-0 z-50 `}
     >
-      <Nav isOpen={isOpen} />
+      <Nav isOpen={isOpen} setIsOpen={setIsOpen} />
 
       <div className="mx-1 drop-shadow-lg">
         <Hamburger
@@ -42,6 +43,7 @@ function Navbar() {
       <div className="py-3 ">
         <Image height={23} alt="Error" src={Logo} />
       </div>
+  
     </div>
   );
 }
