@@ -1,6 +1,6 @@
 import MovieView from "@/components/MovieView/MovieView";
 import CarouselesMain from "@/components/MovieCarousel/CarouselesMain";
-import { dataToRenderHome } from "@/utils/RenderLogic/dataToRender";
+import { dataToRenderHome } from "@/utils/RenderLogic/dataToRenderHome";
 
 
 export default async function Browse() {
