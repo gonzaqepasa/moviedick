@@ -26,6 +26,7 @@ const MovieCarousel: React.FC<Props> = ({ movies, titleSection }) => {
     initialSlide: 0,
     autoplay: true,
     speed: 200,
+    arrows: false,
     autoplaySpeed: 5000,
     pauseOnHover: true,
     onReInit: handleCarouselLoad,
@@ -94,7 +95,7 @@ const MovieCarousel: React.FC<Props> = ({ movies, titleSection }) => {
       </div>
 
       <div className={`  w-[calc(100vw-1vw)] flex flex-col items-center`}>
-        <Slider className=" w-11/12  " {...settings}>
+        <Slider className=" w-full px-4  " {...settings}>
           {movies.map((m: any, i: number) => (
             <Card key={i} movie={m} />
           ))}
