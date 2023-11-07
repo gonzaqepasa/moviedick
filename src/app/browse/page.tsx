@@ -4,11 +4,11 @@ import { dataToRenderHome } from "@/utils/RenderLogic/dataToRender";
 
 
 export default async function Browse() {
-  // const data = await dataToRenderHome();
+  const data = await dataToRenderHome();
   return (
     <main>
-      {/* <MovieView MovieMain={data[0].movies} /> */}
-      {/* <CarouselesMain data={data} /> */}
+      <MovieView MovieMain={data[0].movies} />
+      <CarouselesMain data={data} />
     </main>
   );
 }
