@@ -1,14 +1,17 @@
 import { AiFillStar } from "react-icons/ai";
+
+export type typesConfigTextView = {
+  viewOverview?: boolean;
+  viewTitle?: boolean;
+  viewVote?: boolean;
+  viewAtp?: boolean;
+  viewGenres?: boolean;
+  viewReleaseDate?: boolean;
+};
+
 interface Props {
   MovieMain: any;
-  textConfig?: {
-    viewOverview?: boolean;
-    viewTitle?: boolean;
-    viewVote?: boolean;
-    viewAtp?: boolean;
-    viewGenres?: boolean;
-    viewReleaseDate?: boolean;
-  };
+  textConfig?: typesConfigTextView;
 }
 const TextView: React.FC<Props> = async ({ MovieMain, textConfig }) => {
   // const data = await TMDbAPI.getMovieById(idMovie);

@@ -1,9 +1,9 @@
 import ViewImage from "./ViewImage";
-import TextView from "./TextView";
+import TextView, { typesConfigTextView } from "./TextView";
 
 interface Props {
   MovieMain: [];
-  textConfig?: {};
+  textConfig?: typesConfigTextView;
 }
 
 const MovieView: React.FC<Props> = ({ MovieMain, textConfig }) => {
