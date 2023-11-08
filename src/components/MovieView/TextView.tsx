@@ -7,6 +7,7 @@ export type typesConfigTextView = {
   viewAtp?: boolean;
   viewGenres?: boolean;
   viewReleaseDate?: boolean;
+  overviewComplete?: boolean;
 };
 
 interface Props {
@@ -14,9 +15,7 @@ interface Props {
   textConfig?: typesConfigTextView;
 }
 const TextView: React.FC<Props> = async ({ MovieMain, textConfig }) => {
-  // const data = await TMDbAPI.getMovieById(idMovie);
   const data = MovieMain;
-  console.log(data);
   return (
     <div
       className=" h-full w-screen flex flex-col items-start md:flex-col-reverse p-4  md:p-10 gradiante md:-translate-y-0
@@ -24,14 +23,24 @@ const TextView: React.FC<Props> = async ({ MovieMain, textConfig }) => {
     >
       {textConfig?.viewOverview && (
         <div className=" max-w-xl ">
-          <p className=" text-neutral-300 font-light text-sm">
-            {data.overview.length > 150
-              ? data.overview.slice(0, 150) + "..."
-              : data.overview}
-          </p>
-          <button className=" w-16 main-color-text text-sm hover:brightness-125 transition">
-            {"ver más"}
-          </button>
+          {textConfig.overviewComplete ? (
+            <>
+              <p className=" text-neutral-300 font-light text-sm">
+                {data.overview}
+              </p>
+            </>
+          ) : (
+            <>
+              <p className="text-neutral-300 font-light text-sm">
+                {data.overview.length > 150
+                  ? data.overview.slice(0, 150) + "..."
+                  : data.overview}
+              </p>
+              <button className=" w-16 main-color-text text-sm hover:brightness-125 transition">
+                {"ver más"}
+              </button>
+            </>
+          )}
         </div>
       )}
       {textConfig?.viewTitle && (
