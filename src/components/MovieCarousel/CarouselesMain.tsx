@@ -10,7 +10,7 @@ export interface typesMoviesForCarousel {
 
 async function CarouselesMain({ data }: typesMoviesForCarousel) {
   return (
-    <>
+    <div className="flex flex-col w-full">
       {data.map((movie) => (
         <MovieCarousel
           key={movie.movies.id}
@@ -18,7 +18,7 @@ async function CarouselesMain({ data }: typesMoviesForCarousel) {
           titleSection={movie.titleSection}
         />
       ))}
-    </>
+    </div>
   );
 }
 
