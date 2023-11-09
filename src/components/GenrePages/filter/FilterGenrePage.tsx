@@ -21,7 +21,7 @@ const FilterGenrePage: React.FC<Props> = ({
     router.push(`/browse/genre/${genresFor}/${id}`);
   };
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center w-full  gap-2 p-5 ">
       <label htmlFor="selectGenre" className="text-neutral-200">
         Seleccionar genero
       </label>

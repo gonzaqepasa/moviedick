@@ -18,7 +18,10 @@ const GenrePage: React.FC<Props> = async ({ params }) => {
     <section className="min-h-screen flex flex-col relative items-center justify-around">
       {dataToRender[0].movies.length > 0 ? (
         <>
-          <MovieView textConfig={{}} MovieMain={dataToRender[0].movies} />
+          <MovieView
+            textConfig={{ viewTitleSection: "Peliculas" }}
+            MovieMain={dataToRender[0].movies}
+          />
           <FilterGenrePage
             genres={genres.genresMovies}
             genresFor="movie"

@@ -11,7 +11,7 @@ export default async function Browse() {
           viewTitle: true,
           viewOverview: true,
         }}
-        configImage={{ topHeight: true }}
+        configImage={{ topHeight: true, gradiant: true }}
         MovieMain={data[0].movies}
       />
       <CarouselesMain data={data} />
