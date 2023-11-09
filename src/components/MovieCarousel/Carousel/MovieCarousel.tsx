@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { useState } from "react";
 import { GrNext } from "react-icons/gr";
 
-import Card from "../Card";
+import Card from "../card/Card";
 import Loading from "@/app/browse/loading";
 
 interface Props {
