@@ -1,4 +1,5 @@
 import { AiFillStar } from "react-icons/ai";
+import Link from "next/link";
 
 export type typesConfigTextView = {
   viewOverview?: boolean;
@@ -45,9 +46,9 @@ const TextView: React.FC<Props> = async ({ MovieMain, textConfig }) => {
                   ? data.overview.slice(0, 150) + "..."
                   : data.overview}
               </p>
-              <button className=" w-16 main-color-text text-sm hover:brightness-125 transition">
+              <Link href={`/watch/movie/${MovieMain.id}`} className=" w-16 main-color-text text-sm hover:brightness-125 transition">
                 {"ver más"}
-              </button>
+              </Link>
             </>
           )}
         </div>
