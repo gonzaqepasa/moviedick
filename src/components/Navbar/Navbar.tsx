@@ -2,8 +2,11 @@
 import Image from "next/image";
 import Logo from "@/utils/Logo.svg";
 import { Squash as Hamburger } from "hamburger-react";
-import Nav from "./Nav";
+import Nav from "./Nav/Nav";
 import { useEffect, useState } from "react";
+import "./overflow-nav.css";
+import NavDesktop from "./Nav/Nav.jsx";
+import Link from "next/link";
 
 function Navbar() {
   const [isTop, setIsTop] = useState(true);
@@ -24,13 +27,11 @@ function Navbar() {
   }, []);
   return (
     <div
-      className={`flex items-center ease-in-out duration-700 shadow  transition-colors ${
-        !isTop ? "bg-neutral-900" : " bg-neutral-900/10"
+      className={`flex items-center ease-in-out duration-700 shadow  md:pl-3 transition-colors ${
+        !isTop ? "bg-neutral-900" : " bg-neutral-900/50"
       }  w-screen  fixed top-0 z-50 `}
     >
-      <Nav isOpen={isOpen} setIsOpen={setIsOpen} />
-
-      <div className="mx-1 drop-shadow-lg">
+      <div className="mx-1 z-10 md:hidden drop-shadow-lg">
         <Hamburger
           toggled={isOpen}
           toggle={setIsOpen}
@@ -40,10 +41,11 @@ function Navbar() {
           color="white"
         />
       </div>
-      <div className="py-3 ">
+      <Link href={"/"} className="py-3 ">
         <Image height={23} alt="Error" src={Logo} />
-      </div>
-  
+      </Link>
+
+      <Nav isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 }
