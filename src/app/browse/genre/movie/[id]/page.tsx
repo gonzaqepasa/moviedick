@@ -31,6 +31,11 @@ const GenrePage: React.FC<Props> = async ({ params }) => {
         </>
       ) : (
         <>
+          <FilterGenrePage
+            genres={genres.genresMovies}
+            genresFor="movie"
+            actualGenre={params.id}
+          />
           <div className="flex py-10 items-center justify-center">
             <h2 className="text-neutral-300">Este genero no se reconoce</h2>
           </div>
