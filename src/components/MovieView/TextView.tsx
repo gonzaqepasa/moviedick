@@ -3,6 +3,7 @@ import { AiFillStar } from "react-icons/ai";
 export type typesConfigTextView = {
   viewOverview?: boolean;
   viewTitle?: boolean;
+  viewTitleSection?: false | "Series" | "Peliculas";
   viewVote?: boolean;
   viewAtp?: boolean;
   viewGenres?: boolean;
@@ -18,9 +19,17 @@ const TextView: React.FC<Props> = async ({ MovieMain, textConfig }) => {
   const data = MovieMain;
   return (
     <div
-      className=" h-full w-screen flex flex-col items-start md:flex-col-reverse p-4  md:p-10 gradiante md:-translate-y-0
+      className=" h-full flex flex-col items-start md:flex-col-reverse p-4  md:p-10 gradiante md:-translate-y-0
     -translate-y-5 md:top-0  md:absolute z-20 fadeIn"
     >
+      {textConfig?.viewTitleSection && (
+        <div className="flex w-full   items-center justify-center">
+          <h2 className="font-medium   bg-neutral-950 text-center py-2 border-cyan-600 text-neutral-300 rounded px-10    text-3xl">
+            {textConfig.viewTitleSection}
+          </h2>
+        </div>
+      )}
+
       {textConfig?.viewOverview && (
         <div className=" max-w-xl ">
           {textConfig.overviewComplete ? (

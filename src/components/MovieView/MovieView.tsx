@@ -1,11 +1,9 @@
-import ViewImage from "./ViewImage";
+import ViewImage, { typesConfigImageView } from "./ViewImage";
 import TextView, { typesConfigTextView } from "./TextView";
 
 interface Props {
-  MovieMain: [];
-  configImage?: {
-    topHeight?: boolean;
-  };
+  MovieMain: any[];
+  configImage?: typesConfigImageView;
   textConfig?: typesConfigTextView;
 }
 
