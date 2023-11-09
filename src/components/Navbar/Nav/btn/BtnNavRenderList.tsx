@@ -3,9 +3,14 @@ import "./navMobile.css";
 interface Props {
   genresToRender: { name: string; id: number }[];
   name: string;
+  genresFor: string;
 }
 
-const BtnNavRenderList: React.FC<Props> = ({ genresToRender, name }) => {
+const BtnNavRenderList: React.FC<Props> = ({
+  genresToRender,
+  name,
+  genresFor,
+}) => {
   return (
     <div className="  group  md:flex p-0   md:justify-center mobileConfigBox">
       <Link
@@ -19,8 +24,11 @@ const BtnNavRenderList: React.FC<Props> = ({ genresToRender, name }) => {
        md:bg-neutral-950/90 "
       >
         {genresToRender.map((m) => (
-          <li className=" listRender hover:scale-105 text-neutral-300 " key={m.id}>
-            <Link href={`/browse/genre/${m.id}`}>{m.name}</Link>
+          <li
+            className=" listRender hover:scale-105 text-neutral-300 "
+            key={m.id}
+          >
+            <Link href={`/browse/genre/${genresFor}/${m.id}`}>{m.name}</Link>
           </li>
         ))}
       </ul>
