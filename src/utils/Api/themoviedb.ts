@@ -37,8 +37,19 @@ const TMDbAPI = {
     return TMDbAPI.fetchTmdbData(endpoint, params);
   },
   // Obtener una película por categoria
-  getMovieByCategory: async (genresID: number[],page:number) => {
-    const endpoint = `/discover/movie?with_genres=${genresID.join("|")}&page=${page}`;
+  getMovieByCategory: async (genresID: number[], page: number) => {
+    const endpoint = `/discover/movie?with_genres=${genresID.join(
+      "|"
+    )}&page=${page}`;
+    const params = {
+      // language: "es-ES", // Opcional: Especifica el idioma de los resultados
+    };
+    return TMDbAPI.fetchTmdbData(endpoint, params);
+  },
+  getTVByCategory: async (genresID: number[], page: number) => {
+    const endpoint = `/discover/tv?with_genres=${genresID.join(
+      "|"
+    )}&page=${page}`;
     const params = {
       // language: "es-ES", // Opcional: Especifica el idioma de los resultados
     };
