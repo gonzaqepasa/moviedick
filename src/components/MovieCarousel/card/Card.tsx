@@ -3,17 +3,23 @@ import Image from "next/image";
 import { AiFillStar } from "react-icons/ai";
 import "@/styles/gradiant.css";
 import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
+
+export type typeThisIs = "movie" | "tv";
 
 interface Props {
   movie: any;
+  thisIs: "movie" | "tv";
 }
 
-const Card: React.FC<Props> = ({ movie }) => {
-  const router = usePathname();
-  const val = router.includes("movie");
+const Card: React.FC<Props> = ({ movie, thisIs }) => {
+  const val = thisIs === "movie";
 
   return (
-    <div className="flex h-64 translate group  hover:scale-105 hover:shadow  shadow-cyan-500 transition-transform duration-300">
+    <Link
+      href={`/watch/${thisIs}/${movie.id}`}
+      className="flex h-64 translate group  hover:scale-105 hover:shadow  shadow-cyan-500 transition-transform duration-300"
+    >
       <div className="relative h-full w-full m-0">
         <Image
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
@@ -38,7 +44,7 @@ const Card: React.FC<Props> = ({ movie }) => {
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
