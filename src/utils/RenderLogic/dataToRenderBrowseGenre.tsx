@@ -41,7 +41,7 @@ class RenderGenreLogic {
       },
       {
         movies: res,
-        titleSection: `Peliculas Populares `,
+        titleSection: `Populares `,
       },
     ];
     return dataToSend;
