@@ -1,7 +1,6 @@
 import FilterGenrePage from "@/components/GenrePages/filter/FilterGenrePage";
 import CarouselesMain from "@/components/MovieCarousel/CarouselesMain";
 import MovieView from "@/components/MovieView/MovieView";
-import TMDbAPI from "@/utils/Api/themoviedb";
 import RenderGenreLogic from "@/utils/RenderLogic/dataToRenderBrowseGenre";
 import genres from "@/utils/genresConfig/genres.json";
 
@@ -10,18 +9,18 @@ interface Props {
     id: number;
   };
 }
-const GenrePage: React.FC<Props> = async ({ params }) => {
+const GenrePageTv: React.FC<Props> = async ({ params }) => {
+  // const dataToRender = await dataToRenderBrowseGenre({ genreId: params.id });
   const render = new RenderGenreLogic();
-  const dataToRender = await render.getMovie({ genreId: params.id });
-
+  const dataToRender = await render.getTv({ genreId: params.id });
   return (
     <section className="min-h-screen flex flex-col relative items-center justify-around">
       {dataToRender[0].movies.length > 0 ? (
         <>
           <MovieView textConfig={{}} MovieMain={dataToRender[0].movies} />
           <FilterGenrePage
-            genres={genres.genresMovies}
-            genresFor="movie"
+            genres={genres.genresSeries}
+            genresFor="tv"
             actualGenre={params.id}
           />
           <CarouselesMain data={dataToRender} />
@@ -37,4 +36,4 @@ const GenrePage: React.FC<Props> = async ({ params }) => {
   );
 };
 
-export default GenrePage;
+export default GenrePageTv;
