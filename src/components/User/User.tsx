@@ -30,12 +30,12 @@ const User = () => {
   return (
     <>
       {avatar && (
-        <div className="flex p-4 items-start ">
-          <Image width={45} src={searchAvatar(avatar.img).img} alt="err" />
+        <div className="flex p-4 md:p-0 md:py-2 md:mr-10 items-start justify-center ">
+          <Image height={35} src={searchAvatar(avatar.img).img} alt="err" />
           <div className="flex flex-col items-start ml-2">
             <p className=" ">{avatar.name}</p>
             <button
-              className="text-xs font-light transition-colors text-neutral-400 hover:text-red-300"
+              className="text-xs w-24 font-light text-start transition-colors text-neutral-400  hover:text-red-300"
               onClick={() => {
                 deleteAvatar();
                 router.push("/avatar");
