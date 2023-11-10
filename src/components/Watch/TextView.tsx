@@ -4,13 +4,16 @@ import { AiFillStar } from "react-icons/ai";
 
 interface Props {
   data: any;
+  isThis?: "tv" | "movie";
 }
-const TextViewWatch: React.FC<Props> = ({ data }) => {
+const TextViewWatch: React.FC<Props> = ({ data, isThis }) => {
   return (
     <div className=" w-11/12 flex gap-3 flex-col my-10 items-center">
       <div className="py-4">
         {/* Nombre de la pelicula */}
-        <h2 className="text-neutral-300 text-3xl">{data.title}</h2>
+        <h2 className="text-neutral-300 text-3xl">
+          {isThis === "movie" ? data.title : data.name}
+        </h2>
       </div>
       <div className="w-11/12 p-2 text-center">
         {/* Descripcion  */}
