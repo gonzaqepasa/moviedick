@@ -20,7 +20,7 @@ const TextViewWatch: React.FC<Props> = ({ data, isThis }) => {
         <p className="text-neutral-400">{data.overview}</p>
       </div>
       <div className="w-full">
-        <ul className=" flex gap-2">
+        <ul className=" flex items-center gap-2">
           {/* Lista de generos */}
           {data.genres.map((g: { id: number; name: string }) => (
             <li
@@ -40,14 +40,16 @@ const TextViewWatch: React.FC<Props> = ({ data, isThis }) => {
         </p>
         <p className="text-neutral-400">{data.vote_average.toFixed(1)}</p>
       </div>
-      <div className="w-full flex gap-2 items-center">
-        {/* Fecha de lanzamiento */}
-        <p className="text-neutral-500">Fecha de lanzamiento:</p>
-        <p className="text-neutral-400">{data.release_date}</p>
-      </div>
+      {data.release_date && (
+        <div className="w-full flex gap-2 items-center">
+          {/* Fecha de lanzamiento */}
+          <p className="text-neutral-500">Fecha de lanzamiento:</p>
+          <p className="text-neutral-400">{data.release_date}</p>
+        </div>
+      )}
       <div className="w-full">
-        <ul className="gap-2 flex">
-          {/* Lenguaje disponible */}
+        {/* Lenguaje disponible */}
+        <ul className="gap-2 flex items-center flex-wrap">
           <p className="text-neutral-500">Lenguajes disponibles:</p>
           {data.spoken_languages.map((l: any, i: number) => (
             <li className="text-neutral-400" key={i}>
