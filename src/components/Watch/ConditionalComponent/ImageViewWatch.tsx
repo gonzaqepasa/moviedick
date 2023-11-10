@@ -9,7 +9,7 @@ interface Props {
 
 const ImageViewWatch: React.FC<Props> = ({ data }) => {
   return (
-    <div className="w-screen relative h-[calc(100vh-20vh)]">
+    <div className="w-screen relative h-56 lg:h-[calc(100vh-20vh)]">
       <Image
         priority
         className="object-cover  object-bottom lg:object-top  "
