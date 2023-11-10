@@ -1,5 +1,6 @@
 import { getNumberGenres } from "../Logic/getNumberGenres";
 import TMDbAPI from "../Api/themoviedb";
+import { typeThisIs } from "@/components/MovieCarousel/card/Card";
 
 export async function dataToRenderHome() {
   // Esta funcion contiene toda la logica para llamar
@@ -16,7 +17,11 @@ export async function dataToRenderHome() {
   ];
 
   // Devuelve un array que será mapeado por el componente <CarouselesMain data={data}/>
-  const dataToSend = [
+  const dataToSend: {
+    movies: any;
+    titleSection: string;
+    thisIs: typeThisIs;
+  }[] = [
     {
       movies: popularMovies.results,
       titleSection: `Peliculas Populares `,
