@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Logo from "@/utils/LogoBlack.svg";
 import Link from "next/link";
+import genres from "@/utils/genresConfig/genres.json";
 import "./effect-1.css";
 const Footer = () => {
   return (
@@ -21,10 +22,16 @@ const Footer = () => {
             <Link className="hover:shadow  effect-1" href={"/browse"}>
               Inicio
             </Link>
-            <Link className="hover:drop-shadow-sm effect-1" href={"/browse"}>
+            <Link
+              className="hover:drop-shadow-sm effect-1"
+              href={`/browse/genre/movie/${genres.genresMovies[0].id}`}
+            >
               Peliculas
             </Link>
-            <Link className="hover:drop-shadow-sm effect-1" href={"/browse"}>
+            <Link
+              className="hover:drop-shadow-sm effect-1"
+              href={`/browse/genre/tv/${genres.genresSeries[0].id}`}
+            >
               Series
             </Link>
           </nav>

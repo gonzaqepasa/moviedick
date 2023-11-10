@@ -3,7 +3,6 @@ import TextViewWatch from "@/components/Watch/TextView";
 import VideoViewWatch from "@/components/Watch/ConditionalComponent/VideoViewWatch";
 import RenderToWatchLogic from "@/utils/RenderLogic/RenderToWatch";
 
-
 interface Params {
   params: {
     id: number;
@@ -22,7 +21,7 @@ const WatchMovie: React.FC<Params> = async ({ params }) => {
       ) : (
         <ImageViewWatch data={data.data} />
       )}
-      <TextViewWatch data={data.data} />
+      <TextViewWatch isThis="movie" data={data.data} />
     </section>
   );
 };

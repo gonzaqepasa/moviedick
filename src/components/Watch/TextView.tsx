@@ -19,17 +19,19 @@ const TextViewWatch: React.FC<Props> = ({ data, isThis }) => {
         {/* Descripcion  */}
         <p className="text-neutral-400">{data.overview}</p>
       </div>
-      <ul className="w-full flex gap-2">
-        {/* Lista de generos */}
-        {data.genres.map((g: { id: number; name: string }) => (
-          <li
-            className="bg-neutral-400 text-xs font-bold text-neutral-950 rounded-lg px-2"
-            key={g.id}
-          >
-            {g.name}
-          </li>
-        ))}
-      </ul>
+      <div className="w-full">
+        <ul className=" flex gap-2">
+          {/* Lista de generos */}
+          {data.genres.map((g: { id: number; name: string }) => (
+            <li
+              className="bg-neutral-400 text-xs font-bold text-neutral-950 rounded-lg px-2"
+              key={g.id}
+            >
+              {g.name}
+            </li>
+          ))}
+        </ul>
+      </div>
 
       <div className="flex w-full items-center gap-1">
         {/* Puntos de Raiting  */}
@@ -43,16 +45,17 @@ const TextViewWatch: React.FC<Props> = ({ data, isThis }) => {
         <p className="text-neutral-500">Fecha de lanzamiento:</p>
         <p className="text-neutral-400">{data.release_date}</p>
       </div>
-
-      <ul className="w-full gap-2 flex">
-        {/* Lenguaje disponible */}
-        <p className="text-neutral-500">Lenguajes disponibles:</p>
-        {data.spoken_languages.map((l: any, i: number) => (
-          <li className="text-neutral-400" key={i}>
-            {l.name}
-          </li>
-        ))}
-      </ul>
+      <div className="w-full">
+        <ul className="gap-2 flex">
+          {/* Lenguaje disponible */}
+          <p className="text-neutral-500">Lenguajes disponibles:</p>
+          {data.spoken_languages.map((l: any, i: number) => (
+            <li className="text-neutral-400" key={i}>
+              {l.name}
+            </li>
+          ))}
+        </ul>
+      </div>
       <div className="w-full">
         {/* Pagina web */}
         {data.homepage && (
@@ -65,22 +68,24 @@ const TextViewWatch: React.FC<Props> = ({ data, isThis }) => {
           </a>
         )}
       </div>
-      <ul className=" flex flex-wrap items-center  w-full justify-end gap-5">
-        {data.production_companies.map((pc: any) => (
-          <>
-            {pc.logo_path && (
-              <li className="bg-neutral-300 rounded p-2" key={pc.id}>
-                <Image
-                  width={50}
-                  height={50}
-                  alt="Error"
-                  src={TMDbAPI.makeImageTmdbUrl(pc.logo_path)}
-                />
-              </li>
-            )}
-          </>
-        ))}
-      </ul>
+      <div className="w-full">
+        <ul className=" flex flex-wrap items-center  justify-end gap-5">
+          {data.production_companies.map((pc: any) => (
+            <>
+              {pc.logo_path && (
+                <li className="bg-neutral-300 rounded p-2" key={pc.id}>
+                  <Image
+                    width={50}
+                    height={50}
+                    alt="Error"
+                    src={TMDbAPI.makeImageTmdbUrl(pc.logo_path)}
+                  />
+                </li>
+              )}
+            </>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import "./navMobile.css";
+import genres from "@/utils/genresConfig/genres.json";
 interface Props {
   genresToRender: { name: string; id: number }[];
   name: string;
@@ -14,7 +15,11 @@ const BtnNavRenderList: React.FC<Props> = ({
   return (
     <div className="  group  md:flex p-0   md:justify-center mobileConfigBox">
       <Link
-        href={"/search"}
+        href={`/browse/genre/${genresFor}/${
+          genresFor === "movie"
+            ? genres.genresMovies[0].id
+            : genres.genresSeries[0].id
+        }`}
         className="nameRenderNav  md:transition md:group-hover:text-neutral-400 class text-neutral-300"
       >
         {name}

@@ -21,7 +21,7 @@ const WatchTv: React.FC<Params> = async ({ params }) => {
       ) : (
         <ImageViewWatch data={data.data} />
       )}
-      <TextViewWatch data={data.data} />
+      <TextViewWatch isThis="tv" data={data.data} />
     </section>
   );
 };
