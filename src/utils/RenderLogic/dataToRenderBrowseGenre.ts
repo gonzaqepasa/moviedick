@@ -29,19 +29,22 @@ class RenderGenreLogic {
 
   private criterio = (objeto: any) => objeto.id % 2 === 0;
 
-  private async dataToSend(res: any[]) {
+  private async dataToSend(res: any[], thisIs: "tv" | "movie") {
     const dataToSend = [
       {
         movies: res.filter(this.criterio),
         titleSection: "",
+        thisIs,
       },
       {
         movies: res.filter((objeto) => !this.criterio(objeto)),
         titleSection: "",
+        thisIs,
       },
       {
         movies: res,
-        titleSection: `Peliculas Populares `,
+        titleSection: `Populares `,
+        thisIs,
       },
     ];
     return dataToSend;
@@ -49,11 +52,11 @@ class RenderGenreLogic {
 
   public async getTv({ genreId }: { genreId: number }) {
     const data = await this.getTvByCategory(genreId);
-    return await this.dataToSend(data);
+    return await this.dataToSend(data, "tv");
   }
   public async getMovie({ genreId }: { genreId: number }) {
     const data = await this.getMoviesByCategory(genreId);
-    return await this.dataToSend(data);
+    return await this.dataToSend(data, "movie");
   }
 }
 

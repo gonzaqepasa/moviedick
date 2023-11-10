@@ -1,5 +1,6 @@
 import { getNumberGenres } from "../Logic/getNumberGenres";
 import TMDbAPI from "../Api/themoviedb";
+import { typeThisIs } from "@/components/MovieCarousel/card/Card";
 
 export async function dataToRenderHome() {
   // Esta funcion contiene toda la logica para llamar
@@ -16,46 +17,57 @@ export async function dataToRenderHome() {
   ];
 
   // Devuelve un array que será mapeado por el componente <CarouselesMain data={data}/>
-  const dataToSend = [
+  const dataToSend: {
+    movies: any;
+    titleSection: string;
+    thisIs: typeThisIs;
+  }[] = [
     {
       movies: popularMovies.results,
       titleSection: `Peliculas Populares `,
+      thisIs: "movie",
     },
     {
       movies: allMovies.filter((e: any) =>
         e.genre_ids.includes(getNumberGenres("Accion"))
       ),
       titleSection: "Acción",
+      thisIs: "movie",
     },
     {
       movies: allMovies.filter((e: any) =>
         e.genre_ids.includes(getNumberGenres("Aventura"))
       ),
       titleSection: "Aventura",
+      thisIs: "movie",
     },
     {
       movies: allMovies.filter((e: any) =>
         e.genre_ids.includes(getNumberGenres("Animacion"))
       ),
       titleSection: "Animación",
+      thisIs: "movie",
     },
     {
       movies: allMovies.filter((e: any) =>
         e.genre_ids.includes(getNumberGenres("Comedia"))
       ),
       titleSection: "Comedia",
+      thisIs: "movie",
     },
     {
       movies: allMovies.filter((e: any) =>
         e.genre_ids.includes(getNumberGenres("CienciaFiccion"))
       ),
       titleSection: "Ciencia Ficción",
+      thisIs: "movie",
     },
     {
       movies: allMovies.filter((e: any) =>
         e.genre_ids.includes(getNumberGenres("Terror"))
       ),
       titleSection: "Terror",
+      thisIs: "movie",
     },
   ];
   return dataToSend;

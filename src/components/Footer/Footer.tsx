@@ -1,15 +1,16 @@
 import Image from "next/image";
 import Logo from "@/utils/LogoBlack.svg";
 import Link from "next/link";
+import genres from "@/utils/genresConfig/genres.json";
 import "./effect-1.css";
 const Footer = () => {
   return (
     <>
       <footer className="h-80 flex flex-col md:flex-row items-center relative flex-wrap justify-evenly bg-footer">
         <div className="grid  place-items-center ">
-          <div className="">
+          <Link href={"/browse"} className="">
             <Image src={Logo} width={150} alt="err" />
-          </div>
+          </Link>
           <div className="flex gap-2">
             <p>Ins</p>
             <p>Git</p>
@@ -21,10 +22,16 @@ const Footer = () => {
             <Link className="hover:shadow  effect-1" href={"/browse"}>
               Inicio
             </Link>
-            <Link className="hover:drop-shadow-sm effect-1" href={"/search"}>
+            <Link
+              className="hover:drop-shadow-sm effect-1"
+              href={`/browse/genre/movie/${genres.genresMovies[0].id}`}
+            >
               Peliculas
             </Link>
-            <Link className="hover:drop-shadow-sm effect-1" href={"/search"}>
+            <Link
+              className="hover:drop-shadow-sm effect-1"
+              href={`/browse/genre/tv/${genres.genresSeries[0].id}`}
+            >
               Series
             </Link>
           </nav>
