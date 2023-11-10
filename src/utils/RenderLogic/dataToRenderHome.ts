@@ -20,42 +20,49 @@ export async function dataToRenderHome() {
     {
       movies: popularMovies.results,
       titleSection: `Peliculas Populares `,
+      thisIs: "movie",
     },
     {
       movies: allMovies.filter((e: any) =>
         e.genre_ids.includes(getNumberGenres("Accion"))
       ),
       titleSection: "Acción",
+      thisIs: "movie",
     },
     {
       movies: allMovies.filter((e: any) =>
         e.genre_ids.includes(getNumberGenres("Aventura"))
       ),
       titleSection: "Aventura",
+      thisIs: "movie",
     },
     {
       movies: allMovies.filter((e: any) =>
         e.genre_ids.includes(getNumberGenres("Animacion"))
       ),
       titleSection: "Animación",
+      thisIs: "movie",
     },
     {
       movies: allMovies.filter((e: any) =>
         e.genre_ids.includes(getNumberGenres("Comedia"))
       ),
       titleSection: "Comedia",
+      thisIs: "movie",
     },
     {
       movies: allMovies.filter((e: any) =>
         e.genre_ids.includes(getNumberGenres("CienciaFiccion"))
       ),
       titleSection: "Ciencia Ficción",
+      thisIs: "movie",
     },
     {
       movies: allMovies.filter((e: any) =>
         e.genre_ids.includes(getNumberGenres("Terror"))
       ),
       titleSection: "Terror",
+      thisIs: "movie",
     },
   ];
   return dataToSend;

@@ -6,6 +6,7 @@ import Nav from "./Nav/Nav";
 import { useEffect, useState } from "react";
 import "./overflow-nav.css";
 import NavDesktop from "./Nav/Nav.jsx";
+import Link from "next/link";
 
 function Navbar() {
   const [isTop, setIsTop] = useState(true);
@@ -40,9 +41,9 @@ function Navbar() {
           color="white"
         />
       </div>
-      <div className="py-3 ">
+      <Link href={"/"} className="py-3 ">
         <Image height={23} alt="Error" src={Logo} />
-      </div>
+      </Link>
 
       <Nav isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>

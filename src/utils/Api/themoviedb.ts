@@ -12,7 +12,7 @@ const tmdbInstance = axios.create({
   params: {
     api_key: API_KEY,
     language: "es-AR",
-    append_to_response: "videos,images",
+    append_to_response: "images",
   },
 });
 
@@ -28,17 +28,56 @@ const TMDbAPI = {
       throw error;
     }
   },
+
   // Obtener una película por ID
-  getMovieById: async (movieId: number) => {
-    const endpoint = `/movie/${movieId}`;
+  getVideoForTv: async (movieId: number) => {
+    const endpoint = `/tv/${movieId}/videos`;
     const params = {
       // language: "es-ES", // Opcional: Especifica el idioma de los resultados
     };
     return TMDbAPI.fetchTmdbData(endpoint, params);
   },
+  // Obtener una película por ID
+  getVideoForMovie: async (movieId: number) => {
+    const endpoint = `/movie/${movieId}/videos`;
+    const params = {
+      // language: "es-ES", // Opcional: Especifica el idioma de los resultados
+    };
+    return TMDbAPI.fetchTmdbData(endpoint, params);
+  },
+  // Obtener una película por ID
+  getMovieById: async (movieId: number) => {
+    const endpoint = `/movie/${movieId}`;
+    const params = {
+      // language: "es-ES", // Opcional: Especifica el idioma de los resultados
+      include_video: true,
+    };
+    return TMDbAPI.fetchTmdbData(endpoint, params);
+  },
+  // Obtener una película por ID
+  getTvById: async (tvId: number) => {
+    const endpoint = `/tv/${tvId}`;
+    const params = {
+      include_video: true,
+
+      // language: "es-ES", // Opcional: Especifica el idioma de los resultados
+    };
+    return TMDbAPI.fetchTmdbData(endpoint, params);
+  },
   // Obtener una película por categoria
-  getMovieByCategory: async (genresID: number[],page:number) => {
-    const endpoint = `/discover/movie?with_genres=${genresID.join("|")}&page=${page}`;
+  getMovieByCategory: async (genresID: number[], page: number) => {
+    const endpoint = `/discover/movie?with_genres=${genresID.join(
+      "|"
+    )}&page=${page}`;
+    const params = {
+      // language: "es-ES", // Opcional: Especifica el idioma de los resultados
+    };
+    return TMDbAPI.fetchTmdbData(endpoint, params);
+  },
+  getTVByCategory: async (genresID: number[], page: number) => {
+    const endpoint = `/discover/tv?with_genres=${genresID.join(
+      "|"
+    )}&page=${page}`;
     const params = {
       // language: "es-ES", // Opcional: Especifica el idioma de los resultados
     };

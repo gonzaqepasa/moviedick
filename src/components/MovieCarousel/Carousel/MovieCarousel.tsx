@@ -5,14 +5,15 @@ import "slick-carousel/slick/slick-theme.css";
 import { useState } from "react";
 import { GrNext } from "react-icons/gr";
 
-import Card from "../Card";
+import Card, { typeThisIs } from "../card/Card";
 import Loading from "@/app/browse/loading";
 
 interface Props {
   movies: [];
   titleSection?: string;
+  thisIs: typeThisIs;
 }
-const MovieCarousel: React.FC<Props> = ({ movies, titleSection }) => {
+const MovieCarousel: React.FC<Props> = ({ movies, titleSection, thisIs }) => {
   const [isCarouselLoaded, setIsCarouselLoaded] = useState(false);
 
   const handleCarouselLoad = () => {
@@ -26,6 +27,7 @@ const MovieCarousel: React.FC<Props> = ({ movies, titleSection }) => {
     initialSlide: 0,
     autoplay: true,
     speed: 200,
+    arrows: false,
     autoplaySpeed: 5000,
     pauseOnHover: true,
     onReInit: handleCarouselLoad,
@@ -94,9 +96,9 @@ const MovieCarousel: React.FC<Props> = ({ movies, titleSection }) => {
       </div>
 
       <div className={`  w-[calc(100vw-1vw)] flex flex-col items-center`}>
-        <Slider className=" w-11/12  " {...settings}>
+        <Slider className=" w-full px-4  " {...settings}>
           {movies.map((m: any, i: number) => (
-            <Card key={i} movie={m} />
+            <Card thisIs={thisIs} key={i} movie={m} />
           ))}
         </Slider>
       </div>
