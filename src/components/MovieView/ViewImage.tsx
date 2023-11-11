@@ -17,8 +17,8 @@ const ViewImage: React.FC<Props> = ({ movieMain, configImage }) => {
 
   return (
     <div
-      className={`  relative w-screen h-56 ${
-        configImage?.topHeight ? "h-[calc(100vh-10vh)]" : "h-[calc(100vh-50vh)]"
+      className={`  relative w-screen  ${
+        configImage?.topHeight ? "h-[calc(100vh-40vh)] md:h-[calc(100vh-10vh)]" : "h-[calc(100vh-50vh)]"
       } `}
     >
       <Image
