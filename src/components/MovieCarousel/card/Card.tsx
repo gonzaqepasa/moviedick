@@ -4,6 +4,7 @@ import { AiFillStar } from "react-icons/ai";
 import "@/styles/gradiant.css";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import React, { useEffect, useState } from "react";
 
 export type typeThisIs = "movie" | "tv";
 
@@ -14,9 +15,44 @@ interface Props {
 
 const Card: React.FC<Props> = ({ movie, thisIs }) => {
   const val = thisIs === "movie";
+  const [isHovered, setIsHovered] = useState(false);
+  let hoverTimeout: NodeJS.Timeout;
+  const handleMouseEnter = () => {
+    hoverTimeout = setTimeout(() => {
+      setIsHovered(true);
+    }, 1000); // 1 segundos
+  };
 
+  const handleMouseLeave = () => {
+    clearTimeout(hoverTimeout);
+    setIsHovered(false);
+  };
+
+  // Limpia el temporizador cuando el componente se desmonta
+  useEffect(() => {
+    return () => {
+      clearTimeout(hoverTimeout);
+    };
+  }, []);
   return (
-    <div className="flex h-64 translate group  hover:scale-105 hover:shadow  shadow-cyan-500 transition-transform duration-300">
+    <div
+      // onMouseEnter={handleMouseEnter}
+      // onMouseLeave={handleMouseLeave}
+      className={`flex    `}
+    >
+      {/* {isHovered ? ( */}
+      <Component2 movie={movie} thisIs={thisIs} />
+      {/* ) : ( */}
+      {/* <Component1 movie={movie} thisIs={thisIs} /> */}
+      {/* )} */}
+    </div>
+  );
+};
+
+const Component1: React.FC<Props> = ({ movie, thisIs }) => {
+  const val = thisIs === "movie";
+  return (
+    <div className=" h-[calc(15rem+5vw)] w-full  transition-transform group duration-300 ">
       <div className="relative h-full w-full m-0">
         <Image
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
@@ -27,26 +63,43 @@ const Card: React.FC<Props> = ({ movie, thisIs }) => {
         />
         L
       </div>
-      <div className="fadeIn card-deg hover:bg-opacity-50 hidden group-hover:flex flex-col-reverse absolute h-full p-2 w-full m-0">
-        <Link
-          className="w-full text-neutral-200 transition-colors hover:text-cyan-400 "
-          href={`/watch/${thisIs}/${movie.id}`}
-        >
-          <div className="w-full  ">
-            <p className="text-sm ">{val ? movie.title : movie.name}</p>
-          </div>
-          <div className="flex items-center">
-            <p className="text-yellow-300">
-              <AiFillStar />
-            </p>
-            <p className=" text-xs font-semibold text-neutral-400">
-              {movie.vote_average}
-            </p>
-          </div>
+    </div>
+  );
+};
+const Component2: React.FC<Props> = ({ movie, thisIs }) => {
+  const val = thisIs === "movie";
+  console.log(movie);
+  return (
+    <div
+      className={` h-[calc(15rem+5vw)]  m-1 bg-neutral-600 ${""} grid grid-cols-row-2cg   w-full transition-transform  duration-300 `}
+    >
+      <div className="relative  m-0">
+        <Image
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+          className="object-cover "
+          src={TMDbAPI.makeImageTmdbUrl(movie.backdrop_path)}
+          fill
+          alt=""
+        />
+        L
+      </div>
+      <div className="fadeIn  hover:bg-opacity-50  flex flex-col    w-full m-0">
+        <Link className="" href={`/watch/${thisIs}/${movie.id}`}>
+          Ir
         </Link>
+        <div className="w-full  ">
+          <p className="text-sm ">{val ? movie.title : movie.name}</p>
+        </div>
+        <div className="flex items-center">
+          <p className="text-yellow-300">
+            <AiFillStar />
+          </p>
+          <p className=" text-xs font-semibold text-neutral-400">
+            {movie.vote_average}
+          </p>
+        </div>
       </div>
     </div>
   );
 };
-
 export default Card;
