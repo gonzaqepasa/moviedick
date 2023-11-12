@@ -24,7 +24,7 @@ interface Props {
 
 const Card: React.FC<Props> = ({ movie, thisIs }) => {
   const val = thisIs === "movie";
-  console.log(movie);
+
   const [isHovered, setIsHovered] = useState(false);
   let hoverTimeout: NodeJS.Timeout;
   const handleMouseEnter = () => {
@@ -117,7 +117,9 @@ const Component3: React.FC<Props> = ({ movie, thisIs }) => {
               {movie.vote_average}
             </p>
           </div>
-          {movie.release_date && <p className="text-sm">{movie.release_date}</p>}
+          {movie.release_date && (
+            <p className="text-sm">{movie.release_date}</p>
+          )}
         </div>
       </CardBody>
     </CardNext>
