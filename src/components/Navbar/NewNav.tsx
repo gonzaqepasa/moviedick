@@ -20,7 +20,7 @@ import Logo from "@/utils/Logo.svg";
 import Image from "next/image";
 import "./overflow-nav.css";
 
-export default function App() {
+export default function NewNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
