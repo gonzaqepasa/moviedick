@@ -12,7 +12,7 @@ export interface typesMoviesForCarousel {
 
 async function CarouselesMain({ data }: typesMoviesForCarousel) {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col  min-h-screen w-full">
       {data.map((movie) => (
         <MovieCarousel
           thisIs={movie.thisIs}

@@ -11,7 +11,7 @@ const VideoViewWatch: React.FC<Props> = ({ video }) => {
   const parameter = `autoplay=1&mute=1&showinfo=0&controls=1&modestbranding=1&loop=1`;
   const embedCode = `https://www.youtube.com/embed/${video.results[0].key}?${parameter}`;
   return (
-    <div className="w-full h-72 md:h-96 lg:h-[calc(100vh-3rem)] mt-12">
+    <div className="w-full h-72 md:h-96 lg:h-[calc(100vh-4rem)] ">
       <iframe
         className="w-full h-full"
         src={embedCode}
