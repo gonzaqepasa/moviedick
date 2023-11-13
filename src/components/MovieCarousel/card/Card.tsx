@@ -46,7 +46,7 @@ const Card: React.FC<Props> = ({ movie, thisIs }) => {
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`flex  hover:scale-105 mx-1 hover:mx-2 transition-transform rounded py-2 h-[calc(15rem+5vw)] `}
+      className={`flex  hover:scale-105 mx-1  transition-transform rounded py-2 h-[calc(15rem+5vw)] `}
     >
       {isHovered ? (
         <Component3 movie={movie} thisIs={thisIs} />
