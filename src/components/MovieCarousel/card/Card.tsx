@@ -60,7 +60,7 @@ const Card: React.FC<Props> = ({ movie, thisIs }) => {
 const Component1: React.FC<Props> = ({ movie, thisIs }) => {
   const val = thisIs === "movie";
   return (
-    <CardNext className="  h-full w-full fadeIn bg-neutral-800  group duration-300 ">
+    <CardNext  className="  h-full w-full fadeIn bg-neutral-800  group duration-300 ">
       <Image
         sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
         alt="Card background"
@@ -78,7 +78,7 @@ const Component3: React.FC<Props> = ({ movie, thisIs }) => {
   return (
     <CardNext
       isDisabled={false}
-      radius="sm"
+   
       className="bg-neutral-800     fadeIn  h-full  "
     >
       <CardHeader className="  p-0 flex-col items-start">
