@@ -1,9 +1,8 @@
 import TMDbAPI from "@/utils/Api/themoviedb";
 import Image from "next/image";
-import { AiFillPlayCircle, AiFillStar } from "react-icons/ai";
 import "@/styles/gradiant.css";
-import { usePathname, useRouter } from "next/navigation";
 import { FiPlay } from "react-icons/fi";
+import { AiFillStar } from "react-icons/ai";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import {
@@ -12,7 +11,6 @@ import {
   CardBody,
   Image as ImageNext,
   Button,
-  Textarea,
 } from "@nextui-org/react";
 
 export type typeThisIs = "movie" | "tv";
@@ -48,7 +46,7 @@ const Card: React.FC<Props> = ({ movie, thisIs }) => {
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`flex  rounded py-1 h-[calc(15rem+5vw)] `}
+      className={`flex  hover:scale-105 mx-1  transition-transform rounded py-2 lg:h-[calc(6rem+15vw)] md:h-[calc(10rem+20vw)] h-80 `}
     >
       {isHovered ? (
         <Component3 movie={movie} thisIs={thisIs} />
@@ -62,7 +60,7 @@ const Card: React.FC<Props> = ({ movie, thisIs }) => {
 const Component1: React.FC<Props> = ({ movie, thisIs }) => {
   const val = thisIs === "movie";
   return (
-    <CardNext className="  h-full w-full fadeIn bg-neutral-800 m-1 group duration-300 ">
+    <CardNext  className="  h-full w-full fadeIn bg-neutral-800  group duration-300 ">
       <Image
         sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
         alt="Card background"
@@ -80,8 +78,8 @@ const Component3: React.FC<Props> = ({ movie, thisIs }) => {
   return (
     <CardNext
       isDisabled={false}
-      radius="sm"
-      className="bg-neutral-800   fadeIn  h-full  m-1"
+   
+      className="bg-neutral-800     fadeIn  h-full  "
     >
       <CardHeader className="  p-0 flex-col items-start">
         <Link className="" href={`/watch/${thisIs}/${movie.id}`}>
@@ -118,7 +116,7 @@ const Component3: React.FC<Props> = ({ movie, thisIs }) => {
             </p>
           </div>
           {movie.release_date && (
-            <p className="text-sm">{movie.release_date}</p>
+            <p className="text-xs">{movie.release_date}</p>
           )}
         </div>
       </CardBody>

@@ -19,6 +19,7 @@ import genres from "@/utils/genresConfig/genres.json";
 import Logo from "@/utils/Logo.svg";
 import Image from "next/image";
 import "./overflow-nav.css";
+import User from "../User/User";
 
 export default function NewNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -62,11 +63,16 @@ export default function NewNav() {
             </DropdownTrigger>
             <DropdownMenu
               aria-label="Static Actions"
-              className="overflow-y-scroll overflow-custom-nav h-44 "
+              className="overflow-y-scroll overflow-custom-nav h-56 "
             >
               {genres.genresMovies.map((m, i) => (
                 <DropdownItem key="new" className="text-neutral-300">
-                  {m.name}
+                  <Link
+                    className="text-neutral-300 w-full hover:text-black"
+                    href={`/browse/genre/movie/${m.id}`}
+                  >
+                    {m.name}
+                  </Link>
                 </DropdownItem>
               ))}
             </DropdownMenu>
@@ -83,11 +89,16 @@ export default function NewNav() {
             </DropdownTrigger>
             <DropdownMenu
               aria-label="Static Actions"
-              className="overflow-y-scroll overflow-custom-nav h-44 "
+              className="overflow-y-scroll overflow-custom-nav h-56 "
             >
               {genres.genresSeries.map((m, i) => (
-                <DropdownItem key="new" className="text-neutral-300">
-                  {m.name}
+                <DropdownItem key="new" className="">
+                  <Link
+                    className="text-neutral-300 w-full hover:text-black"
+                    href={`/browse/genre/tv/${m.id}`}
+                  >
+                    {m.name}
+                  </Link>
                 </DropdownItem>
               ))}
             </DropdownMenu>
@@ -97,12 +108,7 @@ export default function NewNav() {
 
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="warning" href="#" variant="flat">
-            Sign Up
-          </Button>
+          <User />
         </NavbarItem>
       </NavbarContent>
 
