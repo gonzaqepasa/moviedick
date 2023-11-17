@@ -118,7 +118,7 @@ export default function NewNav() {
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               className="w-full px-2 text-neutral-400 hover:scale-105 transition-transform hover:text-cyan-600 "
-              href="#"
+              href={`/browse/genre/movie/${item.id}`}
               size="md"
             >
               {item.name}
@@ -130,7 +130,7 @@ export default function NewNav() {
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               className="w-full px-2   text-neutral-400 hover:scale-105 transition-transform hover:text-cyan-600 "
-              href="#"
+              href={`/browse/genre/tv/${item.id}`}
               size="md"
             >
               {item.name}
