@@ -46,7 +46,7 @@ const Card: React.FC<Props> = ({ movie, thisIs }) => {
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`flex  hover:scale-105 mx-1  transition-transform rounded py-2 lg:h-[calc(6rem+15vw)] md:h-[calc(10rem+20vw)] h-80 `}
+      className={`flex  hover:scale-105   transition-transform rounded  w-11/12 aspect-2/3 `}
     >
       {isHovered ? (
         <Component3 movie={movie} thisIs={thisIs} />
@@ -60,7 +60,7 @@ const Card: React.FC<Props> = ({ movie, thisIs }) => {
 const Component1: React.FC<Props> = ({ movie, thisIs }) => {
   const val = thisIs === "movie";
   return (
-    <CardNext  className="  h-full w-full fadeIn bg-neutral-800  group duration-300 ">
+    <CardNext className="  h-full w-full fadeIn bg-neutral-800  group duration-300 ">
       <Image
         sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
         alt="Card background"
@@ -78,7 +78,6 @@ const Component3: React.FC<Props> = ({ movie, thisIs }) => {
   return (
     <CardNext
       isDisabled={false}
-   
       className="bg-neutral-800     fadeIn  h-full  "
     >
       <CardHeader className="  p-0 flex-col items-start">
